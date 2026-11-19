@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#11191b" />
+    <title>Costa Livre | Mundo aberto</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23182021'/%3E%3Cpath d='M8 7h9l-7 13h8l-3 5H2zm12 0h6l-6 13h10l-3 5H12z' fill='%2383ebc1'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        <svg viewBox="0 0 46 32" aria-hidden="true">
+          <path
+            d="M11 2h15l-4 7H15L8 22h9l-4 7H0L2 19zM29 2h8L26 22h16l-4 7H14z"
+          /></svg
+        ><b>COSTA <em>LIVRE</em></b>
+      </div>
+      <nav aria-label="Navegação">
+        <button data-view="game" class="selected">
+          <i data-icon="game"></i><span>Jogar</span></button
+        ><button data-view="map">
+          <i data-icon="map"></i><span>Mapa</span></button
+        ><button data-view="missions">
+          <i data-icon="flag"></i><span>Missões</span>
+        </button>
+      </nav>
+      <div class="hdr-right">
+        <span class="session"><i></i> SESSÃO LOCAL</span
+        ><button id="audio" title="Ativar áudio" aria-label="Ativar áudio">
+          <i data-icon="mute"></i></button
+        ><button id="settings" title="Configurações" aria-label="Configurações">
+          <i data-icon="settings"></i>
+        </button>
+      </div>
+    </header>
+    <main id="stage">
+      <canvas id="game" aria-label="Cidade 3D jogável"></canvas>
+      <div class="vignette"></div>
+      <section class="location">
+        <div class="eyebrow"><span class="rule"></span>MUNDO ABERTO</div>
+        <h1 id="district">Costa Livre</h1>
+        <div class="weather">
+          <i data-icon="sun"></i><span id="clock">16:40</span
+          ><span class="dot">•</span> 27°C
+        </div>
+      </section>
+      <button class="mission hudbox" data-view="missions">
+        <div class="mission-icon"><i data-icon="flag"></i></div>
+        <div>
+          <div class="label gold" id="mission-tag">MISSÃO DISPONÍVEL</div>
+          <strong id="mission-title">Primeiro turno</strong>
+          <p id="mission-text">Vá até o marcador na avenida.</p>
+        </div>
+        <span class="angle">›</span>
+      </button>
+      <div class="bottom-left">
+        <button class="minimap" data-view="map" title="Abrir mapa">
+          <canvas id="radar"></canvas><span class="north">N</span
+          ><span class="expand"><i data-icon="expand"></i></span>
+        </button>
+        <div class="radar-foot">
+          <i data-icon="pin"></i><span id="street">Costa Livre</span>
+        </div>
+      </div>
+      <section class="status">
+        <div class="wanted" aria-label="Nível de procurado"></div>
+        <div class="wallet">
+          <i data-icon="wallet"></i><b id="money">$ 0</b>
+        </div>
+        <div class="vital">
+          <i data-icon="heart"></i>
+          <div class="life"><span id="life"></span></div>
+          <span id="hp">100</span>
+        </div>
+        <div id="speed" hidden></div>
+      </section>
+      <div class="action" id="action" hidden></div>
+      <div id="notice" role="status"></div>
+      <div id="touch">
+        <div class="dpad">
+          <button data-key="KeyW">▲</button><button data-key="KeyA">◀</button
+          ><button data-key="KeyS">▼</button><button data-key="KeyD">▶</button>
+        </div>
+        <div>
+          <button data-key="KeyF">Veículo</button
+          ><button data-key="KeyE">Missão</button
+          ><button data-key="Space">Ação</button>
+        </div>
+      </div>
+      <div id="loading">Carregando a cidade…</div>
+    </main>
+    <footer>
+      <div class="mode"><i></i><b id="mode">EXPLORAÇÃO LIVRE</b></div>
+      <div class="keys">
+        <span><kbd>WASD</kbd> Mover</span><span><kbd>SHIFT</kbd> Correr</span
+        ><span><kbd>F</kbd> Veículo</span><span><kbd>M</kbd> Mapa</span>
+      </div>
+      <button id="controls"><i data-icon="keyboard"></i> Controles</button>
+    </footer>
+    <dialog id="panel">
+      <div class="dialog-head">
+        <h2 id="panel-title"></h2>
+        <button id="close" aria-label="Fechar">×</button>
+      </div>
+      <div id="panel-body"></div>
+    </dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
